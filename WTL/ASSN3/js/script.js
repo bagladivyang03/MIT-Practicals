@@ -66,9 +66,8 @@
             }
             if(password.value != passwordconfirm.value){
                 alert("Password not matched !");
-                passwordconfirm.foccus();
+                passwordconfirm.focus();
                 return false;
             }
-            alert("Form Validated Successfully!!")
             return true;
         }

@@ -19,7 +19,7 @@
             </div>
 
             <div class = "col-md-6 col-lg-7 ml-auto">
-                <form name ="signupform" onsubmit = "return validateform()" method="POST">
+                <form name ="signupform" action = "validation_success.html" onsubmit = "return validateform()" method="POST">
                     <div class ="row">
                         <!-- First Name -->
                         <div class ="input-group col-lg-6 mb-4">
@@ -83,7 +83,8 @@
                         </div>
                         <!-- submit button -->
                         <div class = "form-group col-lg-12 mx-auto mb-0">
-                            <a href="/validation_success.html"></a><button type="submit" class="btn btn-primary btn-block py-2" name="Submit" >Create your Account</button></a>
+                            <a href="validation_success.html"><input type="submit" class="btn btn-primary btn-block py-2" id="submitBtn" name="Submit" value ="Create your Account"></a>
+                            
                         </div>
                     </div>
                 </form>
