@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEB PAGE</title>
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <h1>Harry Potter</h1>
+    <img src='images/harry.PNG' alt="harrypotter" id="harryID" class="harry-image" >
+    <br>
+    <button onclick = "changeImage()">Change Image</button>
+    <p id="textID">Harry Potter is a film series based on the eponymous novels by author J. K. Rowling.
+    The series is distributed by Warner Bros. and consists of eight fantasy films, beginning with Harry Potter and the Philosopher's Stone (2001) and culminating with Harry Potter and the Deathly Hallows – Part 2 (2011).
+    A spin-off prequel series that will consist of five films started with Fantastic Beasts and Where to Find Them (2016), marking the beginning of the Wizarding World shared media franchise.
+    Harry Potter is a series of seven fantasy novels written by British author J. K. Rowling. 
+    The novels chronicle the lives of a young wizard, Harry Potter, and his friends Hermione Granger and Ron Weasley, all of whom are students at Hogwarts School of Witchcraft and Wizardry. 
+    The main story arc concerns Harry's struggle against Lord Voldemort, a dark wizard who intends to become immortal, overthrow the wizard governing body known as the Ministry of Magic and subjugate all wizards and Muggles (non-magical people).</p>
+    <button onclick = "changeText()">Change Text</button>
+
+    <p id="colorID">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and 
+    scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised 
+    in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+    <button onclick=" changecolor()">Change Colour</button>
+
+    <h2 class = "awards-honours">Awards, honours, and recognition</h2>
+    <ul id="awards">
+        <li>Nestlé Smarties Book Prizes (1997–1999)</li>
+        <li> Whitbread children's book of the year award (1999)</li>
+        <li> Guardian Children's Award (1998)</li>
+    </ul>
+    <button onclick = " addnodetoParent()">Add text to list</button>
+    <button onclick = " deletenodefromParent()">Delete node from list</button>
+    <p class = "more-info">To Know More :<a href="https://en.wikipedia.org/wiki/Harry_Potter" target = "_blank"><button class="btn">Click Here</button></a></p>
+    <a href="info.html" target="_blank"><p class="books">Know about Harry Potter Books!</p></a>
+    <script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>

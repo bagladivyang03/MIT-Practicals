@@ -1,0 +1,68 @@
+body{
+    background-color: chocolate;
+    margin-left: 2em;
+    margin-right: 8rem;
+}
+h1{
+    background-color: blue;
+    font-size: 4rem;
+}
+
+p{
+    font-style: italic;
+}
+
+.harry-image{
+    width: 400px;
+    border-color: black;
+    border-width: 10px;
+    border-style: solid;
+    border-radius: 10px;
+}
+
+.awards-honours{
+    background-color: blue;
+}
+
+.more-info{
+    font-size: 1.5rem;
+}
+
+
+.btn{
+    /* width: 35%; */
+    background-color: blue;
+    border: none;
+    color: #bbe1fa;
+    padding: 8px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 8px;
+  }
+table,th,td{
+    border : 2px solid black;
+}
+  .harry_table{
+      font-size: 35px;
+      margin-top: 3em;
+      margin-left: auto;
+      margin-right: auto;
+  }
+
+
+.books_heading{
+    font-size: 50px;
+    text-align: center;
+}
+
+
+.back_home{
+    margin-top: 1.5em;
+    text-align: center;
+}
+
+
+.books{
+    font-size: 24px;
+}
