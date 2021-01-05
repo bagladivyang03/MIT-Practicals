@@ -20,37 +20,40 @@ print("Socket is listening")
 c, addr = s.accept()
 print("Got connection from ",addr)
 
-#send the hashed password to the client 
-msg = input("Enter the message to be encoded : ")
-c.send(b"Password received")
 
-encodedMsg = hashlib.sha1(msg.encode())
+receivedMsg = c.recv(1024)
+authMsg = receivedMsg.decode()
 
-# encoding the password using SHA1 and sending 
-c.send(encodedMsg.hexdigest().encode())
 
-# closing the connection 
+# send password to the client after
+# encoding into binary string
+message = input('Enter the message to be encoded: ')
+encodedMsg = hashlib.sha1(message.encode())
+
+if encodedMsg.hexdigest()==authMsg:
+    c.send(b"Authentication Succesfull !!")
+else:
+    c.send(b"Authentication Failed :(")
+
+
 c.close()
 
 
-
-
 '''
-OUTPUT:-
-
 $ python sha-server.py
 socket succesfully created
 Socket binded to 6180
 Socket is listening
-Got connection from  ('127.0.0.1', 51626)
-Enter the message to be encoded : mitwpu
-
+Got connection from  ('127.0.0.1', 60659)
+Enter the message to be encoded: mitwpu
 
 
 $ python sha-server.py
 socket succesfully created
 Socket binded to 6180
 Socket is listening
-Got connection from  ('127.0.0.1', 51640)
-Enter the message to be encoded : mit
+Got connection from  ('127.0.0.1', 60687)
+Enter the message to be encoded: mitWpu
+
 '''
+
