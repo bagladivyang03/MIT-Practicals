@@ -1,0 +1,11 @@
+START 100
+SR 2,2
+USING *,15
+LOAD 1,D1
+LOAD 1,&Z
+XYZ B1
+SR 4,4
+ABC B1
+D1 DC ='4'
+B1 DC ='5'
+END             

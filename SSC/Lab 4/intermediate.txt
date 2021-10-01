@@ -1,0 +1,4 @@
+load m
+XYZ 3
+XYZ 3,4
+END
