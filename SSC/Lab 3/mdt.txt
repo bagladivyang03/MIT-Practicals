@@ -1,0 +1,7 @@
+ADD 1,#1
+AR 2,2
+MEND
+SR 3,3
+XYZ B
+MEND
+MEND
