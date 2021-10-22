@@ -1,0 +1,181 @@
+1. show dbs
+
+> show dbs
+EMP      0.000GB
+admin    0.000GB
+company  0.000GB
+config   0.000GB
+dib      0.000GB
+hr       0.000GB
+imdb     0.136GB
+local    0.000GB
+test     0.000GB
+
+
+2. use 
+
+> use petShop
+switched to db petShop
+
+3. show collections 
+
+> show collections
+pets
+
+4. createCollection
+
+> db.createCollection("pets")
+{ "ok" : 1 }
+
+5. insert
+
+> db.pets.insert({name: "Tommy", species: "German Sepherd"})
+WriteResult({ "nInserted" : 1 })
+
+6. insertMany
+
+> db.pets.insertMany([
+... ... ... {name:"Mikey",species:"Gerbil"},
+... ... ... {name:"Davey Bungooligan",species:"Piranha"},
+... ... ... {name:"Suzey B",species:"Cat"},
+... ... ... {name:"Mikey",species:"Hotdog"},
+... ... ... {name:"Terrence",species:"Sausagedog"},
+... ... ... {name:"Philomena Jones",species:"Cat"}
+... ... ... ])
+{
+        "acknowledged" : true,
+        "insertedIds" : [
+                ObjectId("61556fd6f9a9c9e9e9acaf94"),
+                ObjectId("61556fd6f9a9c9e9e9acaf95"),
+                ObjectId("61556fd6f9a9c9e9e9acaf96"),
+                ObjectId("61556fd6f9a9c9e9e9acaf97"),
+                ObjectId("61556fd6f9a9c9e9e9acaf98"),
+                ObjectId("61556fd6f9a9c9e9e9acaf99")
+        ]
+}
+
+7. insertOne
+
+> db.pets.insertOne({name: "Skinny", species: "Brown Cat"})
+{
+        "acknowledged" : true,
+        "insertedId" : ObjectId("61557016f9a9c9e9e9acaf9a")
+}
+
+8. deleteOne
+
+> db.pets.deleteOne({"name" : "Tommy"})
+{ "acknowledged" : true, "deletedCount" : 1 }
+
+9. deleteMany
+
+> db.pets.deleteMany({"name" : "Mikey"})
+{ "acknowledged" : true, "deletedCount" : 2 }
+
+10. dropDatabase
+
+> db.dropDatabase()
+{ "ok" : 1 }
+> show dbs
+EMP      0.000GB
+admin    0.000GB
+config   0.000GB
+dib      0.000GB
+hr       0.000GB
+imdb     0.136GB
+local    0.000GB
+petShop  0.000GB
+test     0.000GB
+>
+
+
+11. remove
+
+> db.pets.remove({})
+WriteResult({ "nRemoved" : 5 })
+> db.pets.find()
+
+12. updateOne
+
+> db.pets.updateOne({ "name" : "Mikey" } , { $set  : {"species" : "German Sepherd"}})
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+> db.pets.find()
+{ "_id" : ObjectId("615572a9f9a9c9e9e9acaf9b"), "name" : "Mikey", "species" : "German Sepherd" }
+{ "_id" : ObjectId("615572a9f9a9c9e9e9acaf9c"), "name" : "Davey Bungooligan", "species" : "Piranha" }
+{ "_id" : ObjectId("615572a9f9a9c9e9e9acaf9d"), "name" : "Suzey B", "species" : "Cat" }
+{ "_id" : ObjectId("615572a9f9a9c9e9e9acaf9e"), "name" : "Mikey", "species" : "Hotdog" }
+{ "_id" : ObjectId("615572a9f9a9c9e9e9acaf9f"), "name" : "Terrence", "species" : "Sausagedog" }
+{ "_id" : ObjectId("615572a9f9a9c9e9e9acafa0"), "name" : "Philomena Jones", "species" : "Cat" }
+
+13. updateMany
+
+> db.pets.updateMany({ "species" : "Hotdog" } , { $set  : {"name" : "Katie"}})
+{ "acknowledged" : true, "matchedCount" : 2, "modifiedCount" : 2 }
+> db.pets.find()
+{ "_id" : ObjectId("615572a9f9a9c9e9e9acaf9b"), "name" : "Mikey", "species" : "German Sepherd" }
+{ "_id" : ObjectId("615572a9f9a9c9e9e9acaf9c"), "name" : "Davey Bungooligan", "species" : "Piranha" }
+{ "_id" : ObjectId("615572a9f9a9c9e9e9acaf9d"), "name" : "Suzey B", "species" : "Cat" }
+{ "_id" : ObjectId("615572a9f9a9c9e9e9acaf9e"), "name" : "Katie", "species" : "Hotdog" }
+{ "_id" : ObjectId("615572a9f9a9c9e9e9acaf9f"), "name" : "Terrence", "species" : "Sausagedog" }
+{ "_id" : ObjectId("615572a9f9a9c9e9e9acafa0"), "name" : "Philomena Jones", "species" : "Cat" }
+{ "_id" : ObjectId("61558e8bf9a9c9e9e9acafa1"), "name" : "Katie", "species" : "Hotdog" }
+
+14. save
+
+> db.pets.save({"name": "Sammy" , species : "rabbit" })
+WriteResult({ "nInserted" : 1 })
+> db.pets.find()
+{ "_id" : ObjectId("615572a9f9a9c9e9e9acaf9b"), "name" : "Mikey", "species" : "German Sepherd" }
+{ "_id" : ObjectId("615572a9f9a9c9e9e9acaf9c"), "name" : "Davey Bungooligan", "species" : "Piranha" }
+{ "_id" : ObjectId("615572a9f9a9c9e9e9acaf9d"), "name" : "Suzey B", "species" : "Cat" }
+{ "_id" : ObjectId("615572a9f9a9c9e9e9acaf9e"), "name" : "Katie", "species" : "Hotdog" }
+{ "_id" : ObjectId("615572a9f9a9c9e9e9acaf9f"), "name" : "Terrence", "species" : "Sausagedog" }
+{ "_id" : ObjectId("615572a9f9a9c9e9e9acafa0"), "name" : "Philomena Jones", "species" : "Cat" }
+{ "_id" : ObjectId("61558e8bf9a9c9e9e9acafa1"), "name" : "Katie", "species" : "Hotdog" }
+{ "_id" : ObjectId("61558f7ef9a9c9e9e9acafa2"), "name" : "Sammy", "species" : "rabbit" }
+> db.pets.save({"_id": 10 , "name": "Sammy" , species : "rabbit" })
+WriteResult({ "nMatched" : 0, "nUpserted" : 1, "nModified" : 0, "_id" : 10 })
+> db.pets.find()
+{ "_id" : ObjectId("615572a9f9a9c9e9e9acaf9b"), "name" : "Mikey", "species" : "German Sepherd" }
+{ "_id" : ObjectId("615572a9f9a9c9e9e9acaf9c"), "name" : "Davey Bungooligan", "species" : "Piranha" }
+{ "_id" : ObjectId("615572a9f9a9c9e9e9acaf9d"), "name" : "Suzey B", "species" : "Cat" }
+{ "_id" : ObjectId("615572a9f9a9c9e9e9acaf9e"), "name" : "Katie", "species" : "Hotdog" }
+{ "_id" : ObjectId("615572a9f9a9c9e9e9acaf9f"), "name" : "Terrence", "species" : "Sausagedog" }
+{ "_id" : ObjectId("615572a9f9a9c9e9e9acafa0"), "name" : "Philomena Jones", "species" : "Cat" }
+{ "_id" : ObjectId("61558e8bf9a9c9e9e9acafa1"), "name" : "Katie", "species" : "Hotdog" }
+{ "_id" : ObjectId("61558f7ef9a9c9e9e9acafa2"), "name" : "Sammy", "species" : "rabbit" }
+{ "_id" : 10, "name" : "Sammy", "species" : "rabbit" }
+
+
+15. find
+
+> db.pets.find()
+{ "_id" : ObjectId("615572a9f9a9c9e9e9acaf9b"), "name" : "Mikey", "species" : "German Sepherd" }
+{ "_id" : ObjectId("615572a9f9a9c9e9e9acaf9c"), "name" : "Davey Bungooligan", "species" : "Piranha" }
+{ "_id" : ObjectId("615572a9f9a9c9e9e9acaf9d"), "name" : "Suzey B", "species" : "Cat" }
+{ "_id" : ObjectId("615572a9f9a9c9e9e9acaf9e"), "name" : "Katie", "species" : "Hotdog" }
+{ "_id" : ObjectId("615572a9f9a9c9e9e9acaf9f"), "name" : "Terrence", "species" : "Sausagedog" }
+{ "_id" : ObjectId("615572a9f9a9c9e9e9acafa0"), "name" : "Philomena Jones", "species" : "Cat" }
+{ "_id" : ObjectId("61558e8bf9a9c9e9e9acafa1"), "name" : "Katie", "species" : "Hotdog" }
+{ "_id" : ObjectId("61558f7ef9a9c9e9e9acafa2"), "name" : "Sammy", "species" : "rabbit" }
+{ "_id" : 10, "name" : "Sammy", "species" : "rabbit" }
+
+16. findOne 
+
+> db.pets.findOne({"name" : "Sammy" })
+{
+        "_id" : ObjectId("61558f7ef9a9c9e9e9acafa2"),
+        "name" : "Sammy",
+        "species" : "rabbit"
+}
+
+17. drop 
+
+> db.createCollection("demo")
+{ "ok" : 1 }
+> show collections
+demo
+pets
+products
+> db.demo.drop()
+true
