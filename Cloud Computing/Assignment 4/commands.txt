@@ -1,0 +1,18 @@
+Create bucket command 
+aws s3api create-bucket --bucket cc-lab4 --region us-east-1
+
+Upload object in s3 bucket 
+aws s3 cp C:\Users\Divyang\Downloads\commands.txt s3://cc-lab4/commands.txt
+
+Delete object from s3 bucket 
+aws s3 rm s3://cc-lab4/commands.txt
+
+Download object from s3 bucket
+aws s3 cp s3://cc-lab4/commands.txt C:\Users\Divyang\Desktop
+
+View the buckets
+aws s3 ls
+
+Delete s3 bucket
+aws s3api delete-bucket --bucket cc-lab4 --region us-east-1
+
